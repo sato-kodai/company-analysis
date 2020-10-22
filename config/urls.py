@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from accounts.views import Top
+from analysis.views import Top
 
 urlpatterns = [
     path('', Top.as_view(), name='top'),
