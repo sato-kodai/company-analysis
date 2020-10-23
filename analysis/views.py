@@ -22,3 +22,6 @@ class CompanyView(DetailView):
             'statement_list': statement_list,
         }
         return params
+
+class StatementView(DetailView):
+    model = Statement

@@ -32,7 +32,7 @@
         <tr class="odd gradeX text-center">
             <td class="text-center"><a href="{% url 'analysis:company' item.pk %}">{{ item.name }}</a></td>
             {% comment %} <td class="text-center">{{ item.fiscal_year }}</td>{% endcomment %}
-            <td><a href="">詳細へ</a></td>
+            <td><a href="{% url 'analysis:statement' item.pk %}">詳細へ</a></td>
         </tr>
         {% endfor %}
         </tbody>
