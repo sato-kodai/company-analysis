@@ -34,7 +34,7 @@ class Statement(models.Model):
         f = self.bs_current_assets + self.bs_fixed_assets + self.bs_deferred_assets
         return f
 
-    # 総資産に対する流動資産比率（流動資産／総資産）
+    # 流動資産比率（流動資産／総資産）
     def current_assets_rate(self):
         try:
             f = self.bs_current_assets / self.bs_total_assets() * 100
@@ -42,7 +42,7 @@ class Statement(models.Model):
             f = '-'
         return f
 
-    # 総資産に対する固定資産比率（固定資産／総資産）
+    # 固定資産比率（固定資産／総資産）
     def fixed_assets_rate(self):
         try:
             f = self.bs_fixed_assets / self.bs_total_assets() * 100
@@ -50,7 +50,7 @@ class Statement(models.Model):
             f = '-'
         return f
 
-    # 総資産に対する繰延資産比率（繰延資産／総資産）
+    # 繰延資産比率（繰延資産／総資産）
     def deferred_assets_rate(self):
         try:
             f = self.bs_deferred_assets / self.bs_total_assets() * 100
@@ -58,7 +58,7 @@ class Statement(models.Model):
             f = '-'
         return f
 
-    # 総資産に対する流動負債比率（流動負債／総資産）
+    # 流動負債比率（流動負債／総資産）
     def current_liabilities_rate(self):
         try:
             f = self.bs_current_liabilities / self.bs_total_assets() * 100
@@ -66,7 +66,7 @@ class Statement(models.Model):
             f = '-'
         return f
 
-    # 総資産に対する固定負債比率（固定負債／総資産）
+    # 固定負債比率（固定負債／総資産）
     def fixed_liabilities_rate(self):
         try:
             f = self.bs_fixed_liabilities / self.bs_total_assets() * 100
@@ -74,7 +74,7 @@ class Statement(models.Model):
             f = '-'
         return f
 
-    # 総資産に対する純資産比率（純資産／総資産）
+    # 純資産比率（純資産／総資産）
     def net_assets_rate(self):
         try:
             f = self.bs_net_assets / self.bs_total_assets() * 100
@@ -82,7 +82,7 @@ class Statement(models.Model):
             f = '-'
         return f
 
-    # 総売上高合計に対する売上総利益率（売上総利益／総売上）
+    # 売上総利益率（売上総利益／総売上）
     def gross_profit_rate(self):
         try:
             f = self.pl_gross_profit / self.pl_gross_sales * 100
@@ -90,7 +90,7 @@ class Statement(models.Model):
             f = '-'
         return f
 
-    # 総売上高合計に対する営業利益率（営業利益／総売上）
+    # 営業利益率（営業利益／総売上）
     def operating_profit_rate(self):
         try:
             f = self.pl_operating_profit / self.pl_gross_sales * 100
@@ -98,7 +98,7 @@ class Statement(models.Model):
             f = '-'
         return f
 
-    # 総売上高合計に対する経常利益率（経常利益／総売上）
+    # 経常利益率（経常利益／総売上）
     def ordinary_income_rate(self):
         try:
             f = self.pl_ordinary_income / self.pl_gross_sales * 100
@@ -106,7 +106,7 @@ class Statement(models.Model):
             f = '-'
         return f
 
-    # 総売上高合計に対する税引前当期純利益率（税引前当期純利益／総売上）
+    # 税引前当期純利益率（税引前当期純利益／総売上）
     def income_before_tax_rate(self):
         try:
             f = self.pl_income_before_tax / self.pl_gross_sales * 100
@@ -114,7 +114,7 @@ class Statement(models.Model):
             f = '-'
         return f
 
-    # 総売上高合計に対する当期純利益率（当期純利益／総売上）
+    # 当期純利益率（当期純利益／総売上）
     def net_income_rate(self):
         try:
             f = self.pl_net_income / self.pl_gross_sales * 100
