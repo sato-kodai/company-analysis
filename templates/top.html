@@ -23,15 +23,15 @@
         <thead>
         <tr>
             <th class="text-center" width="40%">会社</th>
-            <th class="text-center" width="40%">決算日</th>
+            {% comment %} <th class="text-center" width="40%">決算日</th> {% endcomment %}
             <th class="text-center">LINK</th>
         </tr>
         </thead>
         <tbody>
-        {% for item in statement_list %}
+        {% for item in company_list %}
         <tr class="odd gradeX text-center">
-            <td class="text-center">{{ item.company}}</td>
-            <td class="text-center">{{ item.fiscal_year }}</td>
+            <td class="text-center"><a href="{% url 'analysis:company' item.pk %}">{{ item.name }}</a></td>
+            {% comment %} <td class="text-center">{{ item.fiscal_year }}</td>{% endcomment %}
             <td><a href="">詳細へ</a></td>
         </tr>
         {% endfor %}
