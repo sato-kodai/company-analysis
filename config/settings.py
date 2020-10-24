@@ -14,7 +14,7 @@ SECRET_KEY = 'rhnw7%&o@1*m!!)*e#_j6z^+0+03*@mcnt^gjm58nh_93+s4l('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['18.177.5.147']
 
 
 # Application definition
@@ -70,8 +70,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'company_analysis',
+        'USER': 'admin',
+        'PASSWORD': 'tech1234',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -119,3 +123,4 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'accounts.User'
 LOGIN_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
