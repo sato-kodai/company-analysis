@@ -5,3 +5,21 @@
 .borderless td, .borderless th {
     border: none;
 }
+
+h5 {
+    font-size: large;
+}
+
+.site_name {
+    text-decoration: none;
+    color:white;
+}
+
+.site_name:hover {
+    color:white;
+}
+
+h1 {
+    padding-bottom: 20px;
+}
+

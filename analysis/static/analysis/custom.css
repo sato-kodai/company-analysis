@@ -1,3 +1,5 @@
+
+
 footer.main-footer {
   margin-top: auto!important;
 }
@@ -85,3 +87,8 @@ h4.bank_name {
   color: #796AEE;
   font: bolder;
 }
+
+h5 {
+  font-size: large;
+}
+
