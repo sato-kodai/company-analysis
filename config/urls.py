@@ -4,7 +4,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    # path('', Top.as_view(), name='top'),
     path('', include('analysis.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
