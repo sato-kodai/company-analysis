@@ -1,1 +1,1 @@
-web: gunicorn company-analysis.wsgi --log-file -
+web: gunicorn config.wsgi
