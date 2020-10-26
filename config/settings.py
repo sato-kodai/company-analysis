@@ -163,9 +163,9 @@ LOGGING = {
             'class': 'logging.handlers.TimedRotatingFileHandler',
             'filename': os.path.join(BASE_DIR,'logs/django.log'),
             'formatter': 'prod',
-            'when':'D',
+            'when': 'D',
             'interval': 1,
-            'backupCount': 1,
+            'backupCount': 7,
         },
     },
 
