@@ -1,22 +1,23 @@
 import os
 from pathlib import Path
-# import environ
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+import environ
 
-# env = environ.Env()
-# env.read_env('.env')
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+env = environ.Env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'rhnw7%&o@1*m!!)*e#_j6z^+0+03*@mcnt^gjm58nh_93+s4l('
+CI_ENV = env.bool('DJANGO_CI_ENV', default=False)
+if not CI_ENV:
+    env.read_env(os.path.join(BASE_DIR, '.env'))
+SECRET_KEY = ('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', False)
 
-ALLOWED_HOSTS = ['18.177.5.147']
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 
 # Application definition
@@ -70,14 +71,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'company_analysis',
         'USER': 'admin',
         'PASSWORD': 'tech1234',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': env('HOST'),
+        'PORT': 5432,
     }
 }
 
@@ -117,28 +119,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+PROJECT_NAME = os.path.basename(BASE_DIR)
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 AUTH_USER_MODEL = 'accounts.User'
 LOGIN_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-# import dj_database_url
-# DATABASES['default'] = dj_database_url.config()
-
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# ALLOWED_HOSTS = ['*']
-
-# STATIC_ROOT = 'staticfiles'
-
-# DEBUG = False
-
-# try:
-#     from .local_settings import *
-# except ImportError:
-#     pass
