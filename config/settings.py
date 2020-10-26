@@ -133,7 +133,7 @@ EMAIL_BACKEND = 'django_ses.SESBackend'
 
 #ロギング
 
-LGGING = {
+LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
 
@@ -165,7 +165,7 @@ LGGING = {
             'formatter': 'prod',
             'when':'D',
             'interval': 1,
-            'backCount': 1,
+            'backupCount': 1,
         },
     },
 
