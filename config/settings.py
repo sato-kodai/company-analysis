@@ -144,11 +144,6 @@ LOGGING = {
             'handlers': ['file'],
             'level': 'INFO',
         },
-        #accountsアプリケーションが利用するロガー
-        'accounts':{
-            'handlers': ['file'],
-            'level': 'INFO',
-        },
         #analysisアプリケーションが利用するロガー
         'analysis':{
             'handlers': ['file'],
