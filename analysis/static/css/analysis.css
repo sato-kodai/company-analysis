@@ -1,3 +1,27 @@
+.form-text {
+  display: none;
+}
+
+.borderless td, .borderless th {
+  border: none;
+}
+
+h5 {
+  font-size: large;
+}
+
+.site_name {
+  text-decoration: none;
+  color:white;
+}
+
+.site_name:hover {
+  color:white;
+}
+
+h1 {
+  padding-bottom: 20px;
+}
 
 
 footer.main-footer {
@@ -87,21 +111,3 @@ h4.bank_name {
   color: #796AEE;
   font: bolder;
 }
-
-h5 {
-  font-size: large;
-}
-
-.site_name {
-  text-decoration: none;
-  color:white;
-}
-
-.site_name:hover {
-  color:white;
-}
-
-h1 {
-  padding-bottom: 20px;
-}
-
