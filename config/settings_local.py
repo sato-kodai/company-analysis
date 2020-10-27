@@ -5,8 +5,7 @@ import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(
     os.path.dirname(
-        os.path.dirname(
-            os.path.abspath(__file__))))
+            os.path.abspath(__file__)))
 
 env = environ.Env()
 
@@ -124,7 +123,3 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 LOGIN_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-
-
-DEBUG = True

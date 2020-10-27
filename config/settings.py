@@ -3,7 +3,10 @@ from pathlib import Path
 import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+            os.path.abspath(__file__)))
+
 env = environ.Env()
 
 # Quick-start development settings - unsuitable for production
@@ -133,46 +136,46 @@ EMAIL_BACKEND = 'django_ses.SESBackend'
 
 #ロギング
 
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
 
-#     #ロガーの設定
-#     'loggers':{
-#         #djangoが利用するロガー
-#         'django': {
-#             'handlers': ['file'],
-#             'level': 'INFO',
-#         },
-#         #analysisアプリケーションが利用するロガー
-#         'analysis':{
-#             'handlers': ['file'],
-#             'level': 'INFO',
-#         },
-#     },
+    #ロガーの設定
+    'loggers':{
+        #djangoが利用するロガー
+        'django': {
+            'handlers': ['file'],
+            'level': 'INFO',
+        },
+        #configアプリケーションが利用するロガー
+        'config':{
+            'handlers': ['file'],
+            'level': 'INFO',
+        },
+    },
 
-#     #ハンドラの設定
-#     'handlers':{
-#         'file':{
-#             'level': 'INFO',
-#             'class': 'logging.handlers.TimedRotatingFileHandler',
-#             'filename': os.path.join(BASE_DIR,'logs/django.log'),
-#             'formatter': 'prod',
-#             'when': 'D',
-#             'interval': 1,
-#             'backupCount': 7,
-#         },
-#     },
+    #ハンドラの設定
+    'handlers':{
+        'file':{
+            'level': 'INFO',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': os.path.join(BASE_DIR,'logs/django.log'),
+            'formatter': 'prod',
+            'when': 'D',
+            'interval': 1,
+            'backupCount': 7,
+        },
+    },
 
-#     #フォーマッタの設定
-#     'formatters':{
-#         'prod':{
-#             'format':'\t'.join([
-#                 '%(asctime)s',
-#                 '[%(levelname)s]',
-#                 '%(pathname)s(Line:%(lineno)d)',
-#                 '%(message)s'
-#             ])
-#         },
-#     }
-# }
+    #フォーマッタの設定
+    'formatters':{
+        'prod':{
+            'format':'\t'.join([
+                '%(asctime)s',
+                '[%(levelname)s]',
+                '%(pathname)s(Line:%(lineno)d)',
+                '%(message)s'
+            ])
+        },
+    }
+}
