@@ -3,7 +3,10 @@ from pathlib import Path
 import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+            os.path.abspath(__file__)))
+
 env = environ.Env()
 
 # Quick-start development settings - unsuitable for production
@@ -73,7 +76,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'company_analysis',
-        'USER': 'admin',
+        'USER': 'app_admin',
         'PASSWORD': 'tech1234',
         'HOST': '',
         'PORT': 5432,
@@ -116,10 +119,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-#STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
-STATIC_ROOT = '/user/share/nginx/html/static'
-MEDIA_ROOT ='/user/share/nginx/html/media'
+STATIC_ROOT = '/usr/share/nginx/html/static'
+MEDIA_ROOT ='/usr/share/nginx/html/media'
 
 AUTH_USER_MODEL = 'accounts.User'
 
@@ -133,7 +136,7 @@ EMAIL_BACKEND = 'django_ses.SESBackend'
 
 #ロギング
 
-LGGING = {
+LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
 
@@ -144,13 +147,8 @@ LGGING = {
             'handlers': ['file'],
             'level': 'INFO',
         },
-        #accountsアプリケーションが利用するロガー
-        'accounts':{
-            'handlers': ['file'],
-            'level': 'INFO',
-        },
-        #analysisアプリケーションが利用するロガー
-        'analysis':{
+        #configアプリケーションが利用するロガー
+        'config':{
             'handlers': ['file'],
             'level': 'INFO',
         },
@@ -160,12 +158,12 @@ LGGING = {
     'handlers':{
         'file':{
             'level': 'INFO',
-            'class': 'logging.handers.TimedRotatingFileHandler',
-            'filename':os.path.join(BASE_DIR,'logs/django.log'),
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': os.path.join(BASE_DIR,'logs/django.log'),
             'formatter': 'prod',
-            'when':'D',
+            'when': 'D',
             'interval': 1,
-            'backCount': 1,
+            'backupCount': 7,
         },
     },
 

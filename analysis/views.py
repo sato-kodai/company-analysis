@@ -4,8 +4,8 @@ from django.views.generic import TemplateView, DetailView
 from .models import Company, Statement
 from django.views.generic.list import MultipleObjectMixin 
 
-class TopView(generic.TemplateView):
-    template_name = 'top.html'
+class IndexView(generic.TemplateView):
+    template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
         company_list = Company.objects.all().order_by('id')
