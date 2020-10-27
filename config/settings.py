@@ -118,8 +118,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/user/share/nginx/html/static'
-MEDIA_ROOT ='/user/share/nginx/html/media'
+STATIC_ROOT = '/usr/share/nginx/html/static'
+MEDIA_ROOT ='/usr/share/nginx/html/media'
 
 AUTH_USER_MODEL = 'accounts.User'
 
