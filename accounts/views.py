@@ -3,7 +3,7 @@ from django.views import generic
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import (
-     get_user_model, logout as auth_logout,
+    get_user_model, logout as auth_logout,
 )
 from .forms import UserCreateForm
 
