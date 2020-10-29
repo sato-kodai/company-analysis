@@ -3,6 +3,7 @@ from django.views import generic
 from django.views.generic import TemplateView, DetailView
 from .models import Company, Statement
 from django.views.generic.list import MultipleObjectMixin 
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class IndexView(generic.TemplateView):
     template_name = 'index.html'
@@ -12,7 +13,8 @@ class IndexView(generic.TemplateView):
         params = {'company_list': company_list,}
         return params
 
-class CompanyView(DetailView, MultipleObjectMixin):
+class CompanyView(LoginRequiredMixin, DetailView, MultipleObjectMixin):
+    login_url = '/accounts/login/'
     model = Company
     paginate_by = 4
 
@@ -21,5 +23,6 @@ class CompanyView(DetailView, MultipleObjectMixin):
         context = super(CompanyView, self).get_context_data(object_list=object_list, **kwargs)
         return context
 
-class StatementView(DetailView):
+class StatementView(LoginRequiredMixin, DetailView):
+    login_url = '/accounts/login/'
     model = Statement
