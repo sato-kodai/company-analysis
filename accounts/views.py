@@ -12,9 +12,16 @@ User = get_user_model()
 
 class SignUpView(generic.CreateView):
     form_class = UserCreateForm
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('analysis:index')
     template_name = 'registration/signup.html'
 
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        email = form.cleaned_data.get('email')
+        password = form.cleaned_data.get('password1')
+        user = authenticate(email=email, password=password)
+        login(self.request, user)
+        return response
 
 class ProfileView(LoginRequiredMixin, generic.View):
 
