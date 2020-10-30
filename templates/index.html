@@ -2,6 +2,7 @@
 
 {% load bootstrap4 %}
 
+
 {% block body %}
     {% if user.is_authenticated %}
         <script>
@@ -20,20 +21,20 @@
                     }).columns.adjust().draw();
                 });
         </script>
-        <h1>トップページ</h1>
+        <h1 class="index-top font-weight-bold">日経平均の採用企業リスト</h1>
         <table id="statement_list" width="100%" class="table table-striped table-bordered table-hover">
             <thead>
             <tr>
-                <th class="text-center" width="40%">会社</th>
-                {% comment %} <th class="text-center" width="40%">決算日</th> {% endcomment %}
-                <th class="text-center">LINK</th>
+                <th class="text-center item-list" width="40%">会社</th>
+                <th class="text-center item-list" width="40%">決算日</th>
+                <th class="text-center item-list">LINK</th>
             </tr>
             </thead>
             <tbody>
             {% for item in company_list %}
             <tr class="odd gradeX text-center">
                 <td class="text-center"><a href="{% url 'analysis:company' item.pk %}">{{ item.name }}</a></td>
-                {% comment %} <td class="text-center">{{ item.fiscal_year }}</td>{% endcomment %}
+                <td class="text-center">{{ item.fiscal_year }}</td>
                 <td><a href="{% url 'analysis:statement' item.pk %}">詳細へ</a></td>
             </tr>
             {% endfor %}
@@ -41,11 +42,16 @@
         </table>
     {% else %}
         <div class="description">
-            <div class="web-description">
-                <h1>投資に役立つ財務分析</h1>
-                <p>日経平均に採用された企業の財務分析を提供するサービスです</p>
+            <div class="web-description ">
+                <h1 class="font-weight-bold">投資に役立つ財務分析</h1>
+                <p class="font-weight-bold">日経平均に採用された企業の財務分析を提供するサービスです</p>
             </div>
-            <div class="gest">
+            <div class="registration-login">
+                <a class="btn btn-outline-light btn-success btn-lg mr-2" href="{% url 'login' %}">ログイン</a>
+                <a class="btn btn-outline-light btn-info btn-lg mr-2" href="{% url 'accounts:signup' %}">新規登録</a>
+            </div>
+            <br>
+            <div class="gest-login">
                 <a class=" btn btn-primary btn-lg admin_login " rel="nofollow" deta-method="post" href="{% url 'accounts:gust_login' %}" >ゲストログイン</a>
             </div>
         </div>

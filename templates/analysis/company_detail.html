@@ -1,9 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'analysis/base.html' %}
 {% load humanize %}
 
 {% block body %}
-<main>
-<div class="container">
     <h1>{{ object.name }}の決算データ</h1>
     <section class="tables">
         <div class="container-fluid">
@@ -265,5 +263,4 @@
         </div><!-- container-fluid -->
     </section>
     <br><br>
-</div>
 {% endblock body %}
