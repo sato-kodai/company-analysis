@@ -18,12 +18,29 @@ h1 {
   padding-bottom: 20px;
 }
 
-p {
-  font-size: 2vw;
+.image-box{
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-image: url(../images/back_image.jpg);
 }
 
-main {
-  margin-top: 1vh;
+.container{
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  text-align: center;
+}
+
+p {
+  font-size: 2vw;
 }
 
 .form-text {
@@ -32,6 +49,20 @@ main {
 
 .borderless td, .borderless th {
   border: none;
+}
+
+.index-top{
+  color: white;
+  text-shadow: 1px 1px 0 black, -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;
+}
+
+.item-list{
+  background-color: #aaa;
+}
+
+label, .dataTables_info {
+  color: white;
+  text-shadow: 1px 1px 0 black, -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;
 }
 
 footer.main-footer {
