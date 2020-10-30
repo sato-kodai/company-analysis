@@ -25,17 +25,17 @@
         <table id="statement_list" width="100%" class="table table-striped table-bordered table-hover">
             <thead>
             <tr>
-                <th class="text-center item-list" width="40%">会社</th>
-                <th class="text-center item-list" width="40%">決算日</th>
-                <th class="text-center item-list">LINK</th>
+                <th class="text-center item-list" width="30%">業界</th>
+                <th class="text-center item-list" width="20%">証券コード</th>
+                <th class="text-center item-list">会社</th>
             </tr>
             </thead>
             <tbody>
             {% for item in company_list %}
             <tr class="odd gradeX text-center">
-                <td class="text-center"><a href="{% url 'analysis:company' item.pk %}">{{ item.name }}</a></td>
-                <td class="text-center">{{ item.fiscal_year }}</td>
-                <td><a href="{% url 'analysis:statement' item.pk %}">詳細へ</a></td>
+                <td class="text-center">{{ item.industry }}</td>
+                <td class="text-center"><a href="{% url 'analysis:company' item.pk %}">{{ item.code }}</a></td>
+                <td><a href="{% url 'analysis:company' item.pk %}">{{ item.name }}</a></td>
             </tr>
             {% endfor %}
             </tbody>
