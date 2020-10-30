@@ -6,12 +6,12 @@ class Company(models.Model):
     name = models.CharField("会社名", max_length=30, blank=False)
 
     def __str__(self):
-        return str(self.industry, self.code, self.name)
+        return str(self.name)
 
 
 class Statement(models.Model):
     company = models.ForeignKey(Company, on_delete=models.PROTECT)
-    fiscal_year = models.DateField("決算日")
+    fiscal_year = models.CharField("決算年度", max_length=30)
     bs_current_assets = models.IntegerField("流動資産（百万円）", default=0)
     bs_fixed_assets = models.IntegerField("固定資産（百万円）", default=0)
     bs_current_liabilities = models.IntegerField("流動負債（百万円）", default=0)
@@ -28,7 +28,7 @@ class Statement(models.Model):
     cf_finance = models.IntegerField("財務ＣＦ（百万円）", default=0)
 
     def __str__(self):
-        return str(self.company) + '決算日：【 ' + str(self.fiscal_year) + '】'
+        return str(self.company) + '決算年度：【 ' + str(self.fiscal_year) + '】'
 
     # 総資産
     def bs_total_assets(self):
