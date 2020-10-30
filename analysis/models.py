@@ -1,10 +1,12 @@
 from django.db import models
 
 class Company(models.Model):
+    industry = models.CharField("業種", max_length=30, blank=False, null=True)
+    code = models.CharField("証券コード", max_length=30, blank=False,null=True)
     name = models.CharField("会社名", max_length=30, blank=False)
 
     def __str__(self):
-        return str(self.name)
+        return str(self.industry, self.code, self.name)
 
 
 class Statement(models.Model):
@@ -12,7 +14,6 @@ class Statement(models.Model):
     fiscal_year = models.DateField("決算日")
     bs_current_assets = models.IntegerField("流動資産（百万円）", default=0)
     bs_fixed_assets = models.IntegerField("固定資産（百万円）", default=0)
-    bs_deferred_assets = models.IntegerField("繰延資産（百万円）", default=0)
     bs_current_liabilities = models.IntegerField("流動負債（百万円）", default=0)
     bs_fixed_liabilities = models.IntegerField("固定負債（百万円）", default=0)
     bs_net_assets = models.IntegerField("純資産（百万円）", default=0)
@@ -31,7 +32,7 @@ class Statement(models.Model):
 
     # 総資産
     def bs_total_assets(self):
-        f = self.bs_current_assets + self.bs_fixed_assets + self.bs_deferred_assets
+        f = self.bs_current_assets + self.bs_fixed_assets
         return f
 
     # 流動資産比率（流動資産／総資産）
@@ -46,14 +47,6 @@ class Statement(models.Model):
     def fixed_assets_rate(self):
         try:
             f = self.bs_fixed_assets / self.bs_total_assets() * 100
-        except ZeroDivisionError:
-            f = '-'
-        return f
-
-    # 繰延資産比率（繰延資産／総資産）
-    def deferred_assets_rate(self):
-        try:
-            f = self.bs_deferred_assets / self.bs_total_assets() * 100
         except ZeroDivisionError:
             f = '-'
         return f
