@@ -79,10 +79,9 @@ DATABASES = {
         'USER': 'app_admin',
         'PASSWORD': 'tech1234',
         'HOST': '',
-        'PORT': 5432,
+        'PORT': '',
     }
 }
-
 AUTH_USER_MODEL = 'accounts.User'
 
 # Password validation
