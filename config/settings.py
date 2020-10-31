@@ -11,7 +11,6 @@ env = environ.Env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-
 SECRET_KEY = ('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -80,7 +79,7 @@ DATABASES = {
         'USER': 'app_admin',
         'PASSWORD': 'tech1234',
         'HOST': '',
-        'PORT': 5432,
+        'PORT': ''
     }
 }
 
@@ -185,7 +184,7 @@ EMAIL_BACKEND = 'django_ses.SESBackend'
 
 # heroku用
 import dj_database_url
-# DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 

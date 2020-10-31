@@ -11,9 +11,7 @@ env = environ.Env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-CI_ENV = env.bool('DJANGO_CI_ENV', default=False)
-if not CI_ENV:
-    env.read_env(os.path.join(BASE_DIR, '.env'))
+
 SECRET_KEY = ('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -79,7 +77,7 @@ DATABASES = {
         'USER': 'app_admin',
         'PASSWORD': 'tech1234',
         'HOST': '',
-        'PORT': 5432
+        'PORT': ''
     }
 }
 AUTH_USER_MODEL = 'accounts.User'
