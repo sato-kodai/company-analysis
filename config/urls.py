@@ -11,4 +11,3 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings_local.STATIC_URL, document_root=settings_local.STATIC_ROOT)
-urlpatterns += static(settings_local.MEDIA_URL, document_root=settings_local.MEDIA_ROOT)
