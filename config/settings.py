@@ -184,7 +184,16 @@ EMAIL_BACKEND = 'django_ses.SESBackend'
 
 # heroku用
 import dj_database_url
-DATABASES['default'] = dj_database_url.config()
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'name',
+        'USER': 'user',
+        'PASSWORD': '',
+        'HOST': 'host',
+        'PORT': '',
+    }
+}
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -195,6 +204,6 @@ STATIC_ROOT = 'staticfiles'
 DEBUG = False
 
 try:
-    from .settings_local import *
+    from .local_settings import *
 except ImportError:
     pass
