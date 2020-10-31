@@ -1,16 +1,10 @@
-.form-text {
-  display: none;
-}
-
-.borderless td, .borderless th {
-  border: none;
-}
 
 h5 {
   font-size: large;
 }
 
 .site_name {
+  font-size: 1em;
   text-decoration: none;
   color:white;
 }
@@ -20,9 +14,25 @@ h5 {
 }
 
 h1 {
+  font-size: 3em;
   padding-bottom: 20px;
 }
 
+p {
+  font-size: 2vw;
+}
+
+main {
+  margin-top: 1vh;
+}
+
+.form-text {
+  display: none;
+}
+
+.borderless td, .borderless th {
+  border: none;
+}
 
 footer.main-footer {
   margin-top: auto!important;

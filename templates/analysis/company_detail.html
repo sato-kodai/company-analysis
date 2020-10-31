@@ -2,8 +2,6 @@
 {% load humanize %}
 
 {% block body %}
-<main>
-<div class="container">
     <h1>{{ object.name }}の決算データ</h1>
     <section class="tables">
         <div class="container-fluid">
@@ -50,13 +48,6 @@
                                     {% for item in object_list reversed %}
                                         <td class="amount lv1-bottom">{{ item.bs_fixed_assets|intcomma }}</td>
                                         <td class="rate lv1-bottom">{{ item.fixed_assets_rate|floatformat:1 }}％</td>
-                                    {% endfor %}
-                                    </tr>
-                                    <tr>
-                                    <th class="lv1-bottom">繰延資産</th>
-                                    {% for item in object_list reversed %}
-                                        <td class="amount lv1-bottom">{{ item.bs_deferred_assets|intcomma }}</td>
-                                        <td class="rate lv1-bottom">{{ item.deferred_assets_rate|floatformat:1 }}％</td>
                                     {% endfor %}
                                     </tr>
                                     <tr>
@@ -265,5 +256,4 @@
         </div><!-- container-fluid -->
     </section>
     <br><br>
-</div>
 {% endblock body %}
