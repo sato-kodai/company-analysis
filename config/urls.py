@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.staticfiles.urls import static
-from . import settings_local
+from . import local_settings
 
 urlpatterns = [
     path('', include('analysis.urls')),
