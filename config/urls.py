@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.staticfiles.urls import static
-from . import local_settings
+from .settings import base, local
 
 urlpatterns = [
     path('', include('analysis.urls')),
@@ -10,4 +10,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
 ]
 
-urlpatterns += static(local_settings.STATIC_URL, document_root=local_settings.STATIC_ROOT)
+urlpatterns += static(local.STATIC_URL, 
+document_root=local.STATIC_ROOT)
