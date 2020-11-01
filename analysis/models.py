@@ -14,6 +14,7 @@ class Statement(models.Model):
     fiscal_year = models.CharField("決算年度", max_length=30)
     bs_current_assets = models.IntegerField("流動資産（百万円）", default=0)
     bs_fixed_assets = models.IntegerField("固定資産（百万円）", default=0)
+    bs_deferred_assets = models.IntegerField("繰延資産（百万円）", default=0)
     bs_current_liabilities = models.IntegerField("流動負債（百万円）", default=0)
     bs_fixed_liabilities = models.IntegerField("固定負債（百万円）", default=0)
     bs_net_assets = models.IntegerField("純資産（百万円）", default=0)
@@ -32,7 +33,7 @@ class Statement(models.Model):
 
     # 総資産
     def bs_total_assets(self):
-        f = self.bs_current_assets + self.bs_fixed_assets
+        f = self.bs_current_assets + self.bs_fixed_assets + self.bs_deferred_assets
         return f
 
     # 流動資産比率（流動資産／総資産）
@@ -47,6 +48,14 @@ class Statement(models.Model):
     def fixed_assets_rate(self):
         try:
             f = self.bs_fixed_assets / self.bs_total_assets() * 100
+        except ZeroDivisionError:
+            f = '-'
+        return f
+
+    # 繰延資産比率（繰延資産／総資産）
+    def deferred_assets_rate(self):
+        try:
+            f = self.bs_deferred_assets / self.bs_total_assets() * 100
         except ZeroDivisionError:
             f = '-'
         return f
