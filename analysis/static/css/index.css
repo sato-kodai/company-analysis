@@ -60,6 +60,15 @@ p {
   background-color: #aaa;
 }
 
+.item-felid tr:nth-child(2n) {
+  background: #ccc;
+}
+
+
+.item-felid tr:nth-child(2n+1) {
+  background: #fff;
+}
+
 label, .dataTables_info {
   color: white;
   text-shadow: 1px 1px 0 black, -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;
