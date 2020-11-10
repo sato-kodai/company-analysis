@@ -55,3 +55,6 @@ https://company-analysis.net/
 * テスト項目の追加
 * Docker・CircleCIの導入
 * 四半期財務情報の追加等の機能の拡充
+
+# 参考
+* techpit：【Django】財務分析アプリを作ってみよう！
